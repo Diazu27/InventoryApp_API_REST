@@ -1,17 +1,15 @@
 import {Router} from 'express';
-import { TryConn } from '../database/connection';
-import { productSchema } from '../models/product';
+import { getProducts, getProductsById } from '../controllers/ProductController';
+
 
 const router = Router();
 
 // /api/products
+router.get('/', getProducts);
 
-router.get('/', async(req, res)=>{
-    const products = await productSchema.findAll({
-        attributes: ['Id', 'Name']
-    });
-    res.send(JSON.stringify(products));
-})
+// /api/products/10
+
+router.get('/:id', getProductsById);
 
 
 
