@@ -6,6 +6,7 @@ import { categoriesSchema } from './categories';
 export const productSchema = connection.define('products', {
   id: {
     type: Sequelize.INTEGER,
+    autoIncrement: true,
     primaryKey: true
   },
 	name: {

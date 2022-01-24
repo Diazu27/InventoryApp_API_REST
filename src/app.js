@@ -4,6 +4,9 @@ import morgan from 'morgan';
 
 //import routes
 import productRoutes from './routes/productRoutes'
+import categoriesRoutes from './routes/categoriesRoutes';
+;
+
 
 //Init API
 const app = express();
@@ -14,7 +17,7 @@ app.use(json());
 
 //Set routes
 app.use('/api/products', productRoutes);
-
+app.use('/api/categories', categoriesRoutes)
 
 export default app;
 
