@@ -1,5 +1,8 @@
 import { categoriesSchema } from '../models/categories';
 import { productSchema } from '../models/product';
+import Sequelize from 'sequelize';
+import { connection } from '../database/connection';
+
 
 export const getProducts= async (req, res)=>{
     const products = await productSchema.findAll({
@@ -95,4 +98,12 @@ export const deleteProduct  = async (req, res)=>{
              message: `Error: ${e}`
          });
     }
+}
+
+
+export const productsByCategory = async (req, res)=>{
+    const query = 'SELECT c.name, count(*) FROM public.products as p INNER JOIN public.categories as c ON P.categoryid = c.id GROUP BY c.name;'
+    const products = await connection.query(query, {nest: true})
+
+    res.json(products);
 }
