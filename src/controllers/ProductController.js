@@ -2,6 +2,7 @@ import { categoriesSchema } from '../models/categories';
 import { productSchema } from '../models/product';
 import Sequelize from 'sequelize';
 import { connection } from '../database/connection';
+import { stockSchema } from '../models/stock';
 
 
 export const getProducts= async (req, res)=>{
@@ -38,10 +39,20 @@ export const createProduct = async (req, res)=>{
     });   
 
     if(product){
-        res.status(200).json({
-            message: 'Product created successfuly',
-            data: product
-        });
+
+        const stockCreated = stockSchema.create({
+            productid: product.id,
+            unitsinstock: 0,
+        })
+
+        if(stockCreated){
+            res.status(200).json({
+                message: 'Product created successfuly',
+                data: product
+            });
+        }
+
+    
     }
 
    }catch(e){

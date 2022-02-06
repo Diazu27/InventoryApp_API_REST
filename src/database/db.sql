@@ -10,7 +10,7 @@ CREATE TABLE users(
 	LastName VARCHAR(40) NOT NULL,
 	Identification VARCHAR(40) NOT NULL,
 	Email VARCHAR(40) NOT NULL,
-	BirthDate TIMESTAMP NOT NULL
+	BirthDate DATE NOT NULL
 );
 
 CREATE TABLE products (
@@ -23,7 +23,6 @@ CREATE TABLE products (
 );
 
 CREATE TABLE stock(
-	Id SERIAL PRIMARY KEY,
 	ProductID INT NOT NULL,
 	UnitsInStock FLOAT NOT NULL,
 	FOREIGN KEY (ProductID) REFERENCES products(Id)

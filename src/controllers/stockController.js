@@ -14,7 +14,7 @@ export const getStockById = async (req, res)=>{
     console.log(id);
 
     const products = await stockSchema.findOne({
-        where: {id : id},
+        where: {productid : id},
         include: [productSchema]
     });
     
