@@ -6,11 +6,12 @@ import { stockSchema } from '../models/stock';
 
 
 export const getProducts= async (req, res)=>{
-    const products = await productSchema.findAll({
-        include: [categoriesSchema]
-    });
-    res.json(products);
+    res.json({message: 'Hola desde api'});    
 }
+
+
+
+/*
 
 export const getProductsById = async (req, res)=>{
 
@@ -117,4 +118,4 @@ export const productsByCategory = async (req, res)=>{
     const products = await connection.query(query, {nest: true})
 
     res.json(products);
-}
+}*/

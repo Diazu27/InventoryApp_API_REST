@@ -16,9 +16,20 @@ app.use(json());
  
 //Set routes
 app.use('/api', productRoutes);
-app.use('/api/categories', categoriesRoutes)
-app.use('/api/stock', stockRoutes)
+//app.use('/api/categories', categoriesRoutes)
+//app.use('/api/stock', stockRoutes)
 
-export default app;
+
+//Run server
+const port =  4000 || process.env.PORT;
+
+const server = app.listen(port, ()=>{
+    console.log(`Server running on port ${port}`);
+});
+
+
+export {app, server}
+
+
 
 

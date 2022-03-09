@@ -2,10 +2,8 @@ import { productSchema } from "../models/product";
 import { stockSchema } from "../models/stock"
 
 export const getStock = async(req, res) => {
-    const stock = await stockSchema.findAll({
-        include: [productSchema],
-    });
-    res.json(stock);
+    
+    res.json({mess: 'holaaa'});
 }
 
 export const getStockById = async (req, res)=>{
