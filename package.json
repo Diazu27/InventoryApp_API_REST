@@ -2,12 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Backend for inventory app",
-  "main": "src/app.js",
+  "main": "dist/app.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon src/app.js --exec babel-node",
     "build": "babel src --out-dir dist",
-    "start-local": "node dist/app.js",
-    "start": "node src/app.js",
+    "start": "cross-env NODE_ENV=production node dist/app.js",
     "test": "cross-env NODE_ENV=test jest --verbose --silent --detectOpenHandles"
   },
   "author": "",
